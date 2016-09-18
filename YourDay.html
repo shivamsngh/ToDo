@@ -3,9 +3,50 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <link rel="stylesheet" href="theme/main/main.css">
+        <script src="JS/jquery-3.1.0.min.js"></script>
+       <script src="JS/Scripts.js"></script>
+         <title>Plan  lives in your Life</title>
     </head>
     <body>
-        
+        <header> 
+            <div class="header">
+                <nav class="top_left">      
+                    <img src="images/logo.png" alt="ToDo" height="50px">
+                </nav>
+                <nav class="top_right"> 
+                    <a href="#"onclick="showAddModal();">Add New</a>
+                    <a href="#" onclick="reminderSet();">Set Reminder</a>   
+                </nav>
+            </div>     
+        </header>
+        <div class="container">
+        <h1>Plan lives in your life!!!</h1>
+            <div id="tasks"></div>
+            <!--Modal-->
+
+         <div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">x</span>
+      <h2>Add New Task in your todo list</h2>
+    </div>
+    <div class="modal-body">
+      <p><input type="text" id="newTaskSubject" placeholder="Subject">
+       <p><textarea rows=3 placeholder="Enter some description about the task" id="newTaskDesc"></textarea></p> 
+        <p><button onclick="addTask();">Add</button></p>
+      
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+    </div>
+  </div>
+
+</div>
+     
+       
+        </div>
     </body>
 </html>
