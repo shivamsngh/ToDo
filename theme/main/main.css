@@ -27,7 +27,7 @@ header{
 a{
     width: 100%;
     text-decoration: none;
-    background-color: Blue;
+    background-color: rgba(0,0,0,0.19);
     padding: 20px;
     font-size: 20px;
 }
@@ -99,4 +99,7 @@ a{
     color: black;
     cursor: pointer;
    
+}
+.hide{
+    visibility: hidden;
 }

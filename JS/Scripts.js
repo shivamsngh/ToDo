@@ -21,8 +21,15 @@ function addTask(){
 
 function showTask(){
     var jsonData=JSON.parse(localStorage.getItem("taskList"));
-    $("#tasks").html("<li>" + jsonData.Subject + "</li>");
+    $("#tasks").html("<li><a href='#' id='list'>" + jsonData.Subject +"</a></t>"+"<span class='hide'>"+jsonData.Description+"</span></li>");
 }
+
+$(document).on('click','#list',function(){
+    
+
+  $(".hide").css("visibility","visible");
+
+});
 
 
     
