@@ -19,116 +19,73 @@ $(document).on('click','#list',function(){
 
 
 
-function addTask(){
+function insertDB() {  
+    window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+    //prefixes of window.IDB objects
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+
+    //Checking if IndexDB is not supported.
     if (!window.indexedDB) {
         window.alert("Your browser doesn't support a stable version of IndexedDB.")
     }
-    else {
-        /*var subject = $("#newTaskSubject").val();
-        var desc = $("#newTaskDesc").val();    
-        var jsonData = {Subject: subject, Description: desc};
-        localStorage.setItem('taskList', JSON.stringify(jsonData));*/
-        window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-        window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
-        window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
-    var subject = $("#newTaskSubject").val();
-<<<<<<< HEAD
-        var desc = $("#newTaskDesc").val(); 
-    var tdData=[{}];
-       
-    var request = db.transaction(["tdData"], "readwrite")
-   .objectStore("tdData")
-   .add({ subject: subject, description: desc});
-   
-   request.onsuccess = function(event) {
-      alert("New task "+subject+"  has been created.");
-   };
-   
-   request.onerror = function(event) {
-      alert("Unable to add data\r\nIt already exist in your database! ");
-   }
-}
+    //Creating the db 
+    //var subject = $("#subject").val();
+    //var desc = $("#desc").val();
     
+    const taskList = [{ subject: "subject", description: "desc" }]; //initializing the objectStore
 
-=======
-    var desc = $("#newTaskDesc").val();    
-    /*var jsonData = {Subject: subject, Description: desc};
-    localStorage.setItem('taskList', JSON.stringify(jsonData));*/
-    
-    //Now using IndexedDB
-    
-    //Creating Database
-    saveInDB(subject, desc);
-    
->>>>>>> ef7478e78597f650680380a1c82cd3a7489f0ff6
-    showTask();
-}
-//Reading from DB
-function showTask(){
-    var jsonData=JSON.parse(localStorage.getItem("taskList"));
-    $("#tasks").html("<li><a href='#' id='list'>" + jsonData.Subject +"</a></t>"+"<span class='hide'>"+jsonData.Description+"</span></li>");
-}
-
-<<<<<<< HEAD
-$(document).on('click','#list',function(){
-$(".hide").css("visibility","visible");
-=======
-
-
-//Initialize or Create DB
-
-function onPageLoad() {
-    var db = {
-        name: 'todoDB',
-        version: 1,
-        instance: {},
-        tasksList: {
-            subject: subject,
-            desc: description
-        },
-        defaultErrorHandler: function (e) {                 //Error Handling
-            $$result.log(e);
-        },
-        setDefaultErrorHandler: function (request) {
-            if ('onerror' in request) {
-                request.onerror = db.defaultErrorHandler;
-            }
-            if ('onblocked' in request) {
-                request.onblocked = db.defaultErrorHandler;
-            }
-        }
-    }
-    }
-    
-
-    var openDatabase = function () {
-        var openRequest = indexedDB.open(db.name, db.version);
-        openRequest.onupgradeneeded = function (e) {
-            var newVersion = e.target.result;
-            if (!newVersion.objectStorenames.contains(db.storeNames.tasksList)) {
-                $$result.log('Creating<code>tasksList</code>');
->>>>>>> ef7478e78597f650680380a1c82cd3a7489f0ff6
-
-            }
-            db.setDefaultErrorHandler(openRequest);
-            openRequest.onsuccess = function (e) {
-                db.instance = e.target.result;
-                $$result.log('Creating<code>tasksList</code>');
-            }
-        }
-        var store = transaction.objectStore(db.storeName.tasksList);
-        addRequest = store.add(task);
-        $$result.log(task+'added');
-    }
-
-function saveInDB(subject, desc){
-   
-    var task={
-        subject:subject,
-        desc:desc
+    //Creating DB
+    var db={};
+    var request = window.indexedDB.open("todoData", 1);
+    request.onerror = function (event) {
+        console.log("error: ");
     };
-    var transact = db.instance.transaction.objectStore([db.storeNames.tasksList], readwrite);
 
+    request.onsuccess = function (event) {
+        db = request.result;
+        console.log("success: " + db);
+        add();
+        read();
+    };
+
+    request.onupgradeneeded = function (event) {
+        console.log("Upgrade Needed");
+        var db = event.target.result;
+        var objectStore = db.createObjectStore("taskList", { autoIncrement: true });
+        for (var i in taskList) {
+            objectStore.add(taskList[i]);
+        }
+    }
+    //Inserting in Database
+    function add() {
+        var subject = $("#subject").val();
+        var desc = $("#desc").val();
+        var request = db.transaction(["taskList"], "readwrite").objectStore("taskList").add({subject: subject, description: desc });
+
+        request.onsuccess = function (event) {
+            alert(subject+" added to your database.");
+        };
+
+        request.onerror = function (event) {
+            alert("Unable to add data\r\n Already exist in your database! ");
+        }
+
+    }
+    function read(){
+     var transaction=db.transaction(["taskList"], "readwrite");
+      var objectStore = transaction.objectStore("tsakList");
+      var request=objectStore.get(key);
+      request.onerror=function(event){
+          alert("Unable to fetch data/dat unavailable");
+      };   
+      request.onsuccess=function(event){
+          if(request.result){
+              $("#list").append("<li>"+request.result.key+" "+request.result.subject+" "+request.reslut.description+"</li>");
+          }
+      };
+    }
 }
     
     
