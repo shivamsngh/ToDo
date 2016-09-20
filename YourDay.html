@@ -11,17 +11,24 @@
     <body>
         <header> 
             <div class="header">
-                <nav class="top_left">      
-                    <img src="images/logo.png" alt="ToDo" height="50px">
+                <nav class="top_right">      
+                    <img src="images/logo.png" alt="ToDo" id="logo">
                 </nav>
+                <!--
                 <nav class="top_right"> 
                     <a href="#"onclick="showAddModal();">Add New</a>
                     <a href="#" onclick="reminderSet();">Set Reminder</a>   
-                </nav>
+                </nav>-->
             </div>     
         </header>
         <div class="container">
-        <h1>Plan lives in your life!!!</h1>
+        <h3>Plan lives in your life!!!</h3>
+            <div class="menu_right">
+                <aside>
+            <button onclick="showAddModal();">Add New</button><br/>
+            <button onclick="reminderSet();">Set Reminder</button><br/>
+            <button onclick="showAllData();">Show All tasks</button>
+                </aside></div>
             <div>
             <ul id="tasks">
             </ul></div>
