@@ -3,6 +3,7 @@ html{
     margin-left: 10px;
     margin-right: 20px;
     font-family: Calibri;
+    background-image: url("/images/bckgrnd.jpg");
 }
 body {
     height: 100%;
