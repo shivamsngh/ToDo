@@ -10,7 +10,7 @@ body {
     
 }
 h1{
-    font: helvetica bold 16px;
+    margin: inherit;
     color: #4800ff; 
 }
 #logo{
@@ -30,6 +30,8 @@ a{
     background-color: rgba(0,0,0,0.19);
     padding: 20px;
     font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .top_left{
     position: relative;
