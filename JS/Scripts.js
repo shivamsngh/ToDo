@@ -30,7 +30,7 @@
         }
     }
     }
-    function showData(db){      
+    function showData(){      
      var transaction=db.transaction(["taskList"], "readwrite");
       var objectStore = transaction.objectStore("taskList");
        objectStore.openCursor().onsuccess = function(event) {
@@ -41,9 +41,9 @@
          cursor.continue();
       }
       
-      else {
+      /*else {
          alert("No more entries!");
-      }
+      }*/
    };
     }
     //Inserting in Database
@@ -52,11 +52,13 @@
         var desc = $("#desc").val();
         var request = db.transaction(["taskList"], "readwrite").objectStore("taskList").add({subject: subject, description: desc });
         request.onsuccess = function (event) {
+            $("#tasks").append("<li>Subject: "+subject+"Description is: "+desc+"</li>");
             console.log(subject+" added to your database.");
         };
         request.onerror = function (event) {
             console.log("Unable to add data\r\n Already exist in your database! ");
         }
+        
     }
     function read(){
      var transaction=db.transaction(["taskList"], "readwrite");
