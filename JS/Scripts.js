@@ -16,6 +16,31 @@ $(document).on('click','#list',function(){
   $(".hide").css("visibility","visible");
 
 });
+function readAll(){
+     window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+    //prefixes of window.IDB objects
+    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+
+    //Checking if IndexDB is not supported.
+    if (!window.indexedDB) {
+        window.alert("Your browser doesn't support a stable version of IndexedDB.")
+    }
+     var db={};
+     var transaction=db.transaction(["taskList"], "readwrite");
+      var objectStore = transaction.objectStore("taskList");
+      var request=objectStore.get(key);
+      request.onerror=function(event){
+          alert("Unable to fetch data/data unavailable");
+      };   
+      request.onsuccess=function(event){
+          if(request.result){
+              $("#list").append("<li>"+request.result.key+" "+request.result.subject+" "+request.reslut.description+"</li>");
+          }
+      };
+
+}
 
 
 
