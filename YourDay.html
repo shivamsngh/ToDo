@@ -10,6 +10,7 @@
          <title>Plan  lives in your Life</title>
        </head>
     <body onload="initializeDb()">
+        <div class="wrapper">
        <header> 
             <div class="header">
                 <nav class="top_right">                          
@@ -18,17 +19,17 @@
             </div>   
         </header>
                <div class="menu_right">
-                 <aside>
+                 
             <button onclick="showAddModal();">Add New</button><br/>
             <button onclick="reminderSet();">Set Reminder</button><br/>
             <button onclick="showAllData();">Show All tasks</button>
-                </aside>
+               
                </div> 
 
-        <div class="container">
+        <!--<div class="container">
         <h3>Plan lives in your life!!!</h3>            
-        </div>
-            <div>
+        </div>-->
+            <div class="result">
                 <ul id="tasks"></ul>
             </div>
             <!--Modal-->
@@ -48,6 +49,7 @@
       <h3>Modal Footer</h3>
     </div>
   </div>
-</div>
-            </body>
+</div></div>
+      </body>
+
 </html>

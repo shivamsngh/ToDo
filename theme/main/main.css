@@ -49,6 +49,9 @@ button{
      position: relative;
     float: right;
 }
+.wrapper{
+    overflow: auto;
+}
 .container{
     position: relative;
     max-height: 50%;
@@ -115,15 +118,15 @@ button{
 .hide{
     visibility: hidden;
 }
-.menu_right{
+.menu_right, .result{
+    
     border: 2px solid brown;
     padding: 10px;
-    box-sizing: border-box;
-    position: fixed;
-}
-#tasks{
-    position: relative;
-    margin: auto;
-    height: 200px;
     width: 200px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 10px;
+}
+.result{
+    margin: auto;
 }
