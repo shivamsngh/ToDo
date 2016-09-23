@@ -50,8 +50,10 @@ button{
     float: right;
 }
 .container{
-    position: absolute;
+    position: relative;
     max-height: 50%;
+    margin: auto;
+    width: 200px;
     
 }
 .header{
@@ -117,4 +119,11 @@ button{
     border: 2px solid brown;
     padding: 10px;
     box-sizing: border-box;
+    position: fixed;
+}
+#tasks{
+    position: relative;
+    margin: auto;
+    height: 200px;
+    width: 200px;
 }
