@@ -18,7 +18,6 @@ h1{
     all: initial;
     left: 250px;
     
-    
 }
 header{
     max-height: 25%;
@@ -87,7 +86,7 @@ button{
 }
 .modal-header {
     padding: 2px 16px;
-    background-color: rgb(133, 224, 133);
+    background-color: #5cb85c;
     color: white;
 }
 
@@ -95,7 +94,7 @@ button{
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: rgb(133, 224, 133);
+    background-color: #5cb85c;
     color: white;
 }
 .close{
@@ -120,16 +119,6 @@ button{
     border: 2px solid brown;
     padding: 10px;
     box-sizing: border-box;
-<<<<<<< HEAD
-    background-color: rgba(0,0,0,0.2);
-}
-#taskBlock{
-    max-height:400px;
-    max-width: 600px;
-    border: 2px solid blue;
-    position: relative;
-    
-=======
     position: fixed;
 }
 #tasks{
@@ -137,5 +126,4 @@ button{
     margin: auto;
     height: 200px;
     width: 200px;
->>>>>>> e14ad186af69cb7b8567af4ce79728dffaaf1a24
 }
