@@ -82,7 +82,7 @@ function insertDB() {
       };   
       request.onsuccess=function(event){
           if(request.result){
-              $("#list").append("<li>"+request.result.key+" "+request.result.subject+" "+request.reslut.description+"</li>");
+              $("#list").html("<li>"+request.result.key+" "+request.result.subject+" "+request.reslut.description+"</li>");
           }
       };
     }
