@@ -11,7 +11,7 @@ body {
     
 }
 h1{
-    font: helvetica bold 16px;
+    margin: inherit;
     color: #4800ff; 
 }
 #logo{
@@ -33,6 +33,8 @@ a{
     background-color: rgba(0,0,0,0.19);
     padding: 20px;
     font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 button{
     padding: 10px;
@@ -49,8 +51,10 @@ button{
     float: right;
 }
 .container{
-    position: absolute;
+    position: relative;
     max-height: 50%;
+    margin: auto;
+    width: 200px;
     
 }
 .header{
@@ -116,6 +120,7 @@ button{
     border: 2px solid brown;
     padding: 10px;
     box-sizing: border-box;
+<<<<<<< HEAD
     background-color: rgba(0,0,0,0.2);
 }
 #taskBlock{
@@ -124,4 +129,13 @@ button{
     border: 2px solid blue;
     position: relative;
     
+=======
+    position: fixed;
+}
+#tasks{
+    position: relative;
+    margin: auto;
+    height: 200px;
+    width: 200px;
+>>>>>>> e14ad186af69cb7b8567af4ce79728dffaaf1a24
 }

@@ -6,34 +6,43 @@
         <link rel="stylesheet" href="theme/main/main.css">
         <script src="JS/jquery-3.1.0.min.js"></script>
        <script src="JS/Scripts.js"></script>
+        <script src="JS/StyleScript.js"></script>
          <title>Plan  lives in your Life</title>
        </head>
-    <body>
-        <header> 
+    <body onload="initializeDb()">
+       <header> 
             <div class="header">
-                <nav class="top_right">      
+                <nav class="top_right">                          
                     <img src="images/logo.png" alt="ToDo" id="logo">
-                </nav>
-                <!--
-                <nav class="top_right"> 
-                    <a href="#"onclick="showAddModal();">Add New</a>
-                    <a href="#" onclick="reminderSet();">Set Reminder</a>   
-                </nav>-->
-            </div>     
+                </nav>                             
+            </div>   
         </header>
+<<<<<<< HEAD
 <div class="container">
         <h3>Plan lives in your life!!!</h3>
             <div class="menu_right">
+=======
+        <div class="menu_right">
+>>>>>>> e14ad186af69cb7b8567af4ce79728dffaaf1a24
                 <aside>
             <button onclick="showAddModal();">Add New</button><br/>
             <button onclick="reminderSet();">Set Reminder</button><br/>
             <button onclick="showAllData();">Show All tasks</button>
+<<<<<<< HEAD
                 </aside></div> </div>
             <div id="taskBlock">
+=======
+                </aside>
+        </div>
+        <div class="container">
+        <h3>Plan lives in your life!!!</h3>            
+        </div>
+            <div>
+>>>>>>> e14ad186af69cb7b8567af4ce79728dffaaf1a24
             <ul id="tasks">
-            </ul></div>
+            </ul>
+            </div>
             <!--Modal-->
-
          <div id="myModal" class="modal">
 
   <!-- Modal content -->
@@ -45,7 +54,7 @@
     <div class="modal-body">
       <p><input type="text" id="subject" placeholder="Subject">
        <p><textarea rows=3 placeholder="Enter some description about the task" id="desc"></textarea></p> 
-        <p><button onclick="insertDB()">Add</button></p>
+        <p><button onclick="add()">Add</button></p>
       
     </div>
     <div class="modal-footer">
@@ -56,6 +65,10 @@
 </div>
      
        
+<<<<<<< HEAD
        
+=======
+        
+>>>>>>> e14ad186af69cb7b8567af4ce79728dffaaf1a24
     </body>
 </html>
