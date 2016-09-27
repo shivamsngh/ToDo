@@ -2,7 +2,6 @@
    //prefixes of window.IDB objects
    window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
    window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
-
     //Checking if IndexDB is not supported.
     if (!window.indexedDB) {
         window.alert("Your browser doesn't support a stable version of IndexedDB.")
